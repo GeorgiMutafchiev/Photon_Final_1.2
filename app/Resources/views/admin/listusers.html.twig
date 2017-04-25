@@ -1,0 +1,45 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper">
+
+        <div class="light-wrapper">
+            <h1>List of all users:</h1>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Profile Picture</th>
+                    <th>Full Name</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <!-- <th>Delete</th> -->
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td><img src="{{ asset('uploads/photos/' ~ user.photo) }}" width="200px"></td>
+                    <td>{{ user.fullName }}</td>
+                    <td>{% if (user.status == "ok") %}
+                            <a style="color: white; background-color: limegreen; padding: 5px;">OK</a>
+                        {% endif %}
+                        {% if (user.status == "ban") %}
+                            <a style="color: white; background-color: orangered; padding: 5px;">BAN</a>
+                        {% endif %}
+                    </td>
+                    <td>{{ user.email }}</td>
+
+                    <td><a style="color: white; background-color: cornflowerblue; padding: 5px;" href="{{ path('admin_user_edit', {'id': user.id}) }}">EDIT</a>
+                    </td>
+                    <!-- <td><a style="color: white; background-color: lightcoral; padding: 5px;" href="{{ path('admin_user_delete', {'id': user.id}) }}">DELETE</a></td> -->
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+
+{% endblock %}

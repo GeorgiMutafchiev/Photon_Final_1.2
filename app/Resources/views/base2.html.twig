@@ -1,0 +1,127 @@
+{#
+   This is the base template used as the application layout which contains the
+   common elements and decorates all the other templates.
+   See http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
+#}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}&copy;Photon{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('revolution/css/settings.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('revolution/css/layers.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('revolution/css/navigation.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/color/forest.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('type/icons.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+
+<body class="onepage" id="{% block body_id %}{% endblock %}">
+<div class="content-wrapper">
+{% block header %}
+    <header>
+        <div style="background-color: #2f2f2f;" class="navbar navbar-default default classic full" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand"><a href="{{ path('blog_index') }}"><img src="{{ asset('images/logo.png') }}" class="logo-dark" alt="" /><img src="{{ asset('images/logo-light.png') }}" class="logo-light" alt="" /></a></div>
+                    <div class="nav-bars-wrapper">
+                        <div class="nav-bars-inner">
+                            <div class="nav-bars" data-toggle="collapse" data-target=".navbar-collapse"><span></span></div>
+                        </div>
+                        <!-- /.nav-bars-inner -->
+                    </div>
+                    <!-- /.nav-bars-wrapper -->
+                </div>
+                <!-- /.nav-header -->
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {% if app.user %}
+                            {% if app.user.isAdmin() %}
+                                <li><a href="#">ADMIN PANEL<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('admin_users') }}">Users</a></li>
+                                        <li><a href="{{ path('admin_articles') }}">Posts</a></li>
+                                        <li><a href="{{ path('admin_categories') }}">Categories</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            <li><a href="#">ACCOUNT<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('user_profile') }}">My profile</a></li>
+                                    <li><a href="{{ path('list_articles') }}">All posts</a></li>
+                                    <li><a href="{{ path('article_create') }}">Write a post</a></li>
+                                    <li><a href="{{ path('profile_edit') }}">Settings</a></li>
+                                    <li><a href="{{ path('security_logout') }}">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{{ path('security_login') }}">
+                                    LOGIN
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li><a href="{{ path('blog_index') }}">Home</a> </li>
+                        <li><a href="{{ path('explore_posts') }}">Explore</a> </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container -->
+        </div>
+        <!--/.navbar -->
+    </header>
+{% endblock %}
+
+
+    {% block body %}
+    <div class="container body-container">
+        <div class="row">
+            <div id="main" class="col-sm-9">
+                <br><br><br><br><br><br>
+                {% block main %}{% endblock %}
+                <br>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+{% block footer %}
+    <footer class="inverse-wrapper">
+
+    <div class="sub-footer">
+        <div class="container inner">
+            <p class="text-center">© 2017 Photon. All rights reserved. Made by <a href="https://www.facebook.com/profile.php?id=100001566423057">GIM</a></p>
+        </div>
+        <!-- .container -->
+    </div>
+    <!-- .sub-footer -->
+
+</footer>
+{% endblock %}
+</div>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
