@@ -1,0 +1,40 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper">
+
+        <div class="light-wrapper">
+            <h1>List of all articles:</h1>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Summary</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td><img src="{{ asset('uploads/photos/' ~ article.photo) }}" width="200px"></td>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.author }}</td>
+                        <td>{{ article.summary }}
+                        </td>
+
+                        <td><a style="color: white; background-color: cornflowerblue; padding: 5px;" href="{{ path('article_edit', {'id': article.id}) }}">EDIT</a>
+                        </td>
+                        <td><a style="color: white; background-color: lightcoral; padding: 5px;" href="{{ path('article_delete', {'id': article.id}) }}">DELETE</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+
+{% endblock %}

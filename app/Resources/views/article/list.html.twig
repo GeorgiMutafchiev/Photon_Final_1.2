@@ -1,0 +1,49 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper">
+
+        <div class="light-wrapper">
+            <div class="container inner">
+                <div class="blog row">
+                    <div class="col-sm-12 blog-content grid-view">
+                        <div class="blog-content">
+                            <div class="row blog-posts">
+
+                                {% for article in articles %}
+
+                                <div class="post col-sm-12 col-md-6">
+                                    <div class="box">
+                                        <h3 class="post-title text-center">{{ article.title }}</h3>
+                                        <div class="meta text-center"><span class="date">Added on: {{ article.dateAdded|date('d-m-Y') }}</span></div>
+                                        <figure class="overlay"><img src="{{ asset('uploads/photos/' ~ article.photo) }}" alt="" /></figure>
+                                        <div class="post-content">
+                                            <p>{{ article.summary }}</p>
+                                            <div class="text-center"><a style="color: white; background-color: cornflowerblue; padding: 5px;" href="{{ path('article_edit', {'id': article.id}) }}">EDIT</a> | <a style="color: white; background-color: lightcoral; padding: 5px;" href="{{ path('article_delete', {'id': article.id}) }}">DELETE</a></div>
+                                        </div>
+                                        <!-- /.post-content -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+
+                                {% endfor %}
+
+                            </div>
+                            <!-- /.blog-posts -->
+
+                        </div>
+                        <!-- /.blog-content -->
+
+                    </div>
+                    <!-- /.blog-content -->
+
+                </div>
+                <!-- /.blog -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+{% endblock %}
+
