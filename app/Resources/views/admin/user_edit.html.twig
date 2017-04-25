@@ -1,0 +1,115 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="container body-content span=8">
+        <div class="well">
+            <form class="form-horizontal" action="{{ path('admin_user_edit', {'id': user.id}) }}" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>User Edit:</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_fullName">Change Name</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_fullName" placeholder="Full Name"
+                                   name="user[fullName]" value="{{ user.fullName }}">
+                            <input type="hidden" name="user[password]" value="{{ user.password }}">
+                            <input type="hidden" name="user[photo]" value="{{ user.photo }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Content</label>
+                        <div class="col-sm-6">
+                            <img width="400px" src="{{ asset('uploads/photos/' ~ user.photo) }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_email">Change Email</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_email" placeholder="Email"
+                                   name="user[email]" value="{{ user.email }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_email">First Type
+                        </label>
+                        <div class="col-sm-4 ">
+                            <input type="radio" name="user[profiletype]" value="first" checked="checked" />
+                            <img width="300px" src="{{ asset('images/art/profile1.JPG') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_email">Second Type
+                        </label>
+                        <div class="col-sm-4 ">
+                            <input type="radio" name="user[profiletype]" value="second" />
+                            <img width="300px" src="{{ asset('images/art/profile2.JPG') }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_fb">Change Facebook</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_fb" placeholder="Facebook"
+                                   name="user[facebook]" value="{{ user.facebook }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_tw">Change Twitter</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_tw" placeholder="Twitter"
+                                   name="user[twitter]" value="{{ user.twitter }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_ins">Change Instagram</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_ins" placeholder="Instagram"
+                                   name="user[instagram]" value="{{ user.instagram }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_email">Change Email</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_email" placeholder="Email"
+                                   name="user[email]" value="{{ user.email }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Change Description</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="6" id="article_content"
+                                      name="user[description]">{{ user.description }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_category">PROFILE STATUS</label>
+                        <div class="col-sm-6">
+                            <select class="selectpicker" name="user[status]" id="user_status" data-live-search="true">
+                                    <option value="ok"><a style="color: white; background-color: limegreen; padding: 5px;">WORKING</a></option>
+                                    <option value="ban"><a style="color: white; background-color: orangered; padding: 5px;">BANNED</a></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {{ form_row(form._token) }}
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" href="{{ path('admin_users') }}">Cancel</a>
+                            <button type="submit" class="btn btn-success">Edit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

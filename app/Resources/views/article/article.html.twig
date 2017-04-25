@@ -1,0 +1,130 @@
+{% extends 'base3.html.twig' %}
+
+{% block main %}
+
+    <div class="light-wrapper">
+        <div class="container inner">
+            <div class="blog row">
+                <div class="col-sm-12">
+                    <div class="blog-content classic-view single">
+                        <div class="blog-posts">
+                            <div class="post">
+                                <div class="box">
+                                    <div class="post-content">
+                                        <h1 class="post-title text-center">{{ article.title }}</h1>
+                                        <div class="meta text-center"><span class="date">Added on: {{ article.dateAdded|date('d-m-Y') }}</span></div>
+                                        <figure><img src="{{ asset('uploads/photos/' ~ article.photo) }}" alt="" /></figure>
+                                        <p>{{ article.content }}</p>
+                                        <div class="divide10"></div>
+                                        <div class="divide10"></div><div class="share share-wrapper text-center"> <a href="#" class="btn btn-share share-facebook">Like</a> <a href="#" class="btn btn-share share-twitter">Tweet</a> <a href="#" class="btn btn-share share-pinterest">Pin It</a> </div>
+                                        <!-- /.share-wrapper -->
+
+                                        <hr />
+
+                                        <div class="post-nav-wrapper">
+                                            <div class="post-nav prev">
+                                                {% for art in allarticles %}
+                                                {% if((art.id + 1) == article.id) %}
+                                                <div class="meta"><i class="ion-android-arrow-back"></i> Previous Article</div>
+                                                <h3 class="post-title"><a href="{{ path('article_view', {'id': art.id}) }}">{{ art.title }}</a></h3>
+                                                {% endif %} {% endfor %}
+                                            </div>
+                                            <div class="post-nav next">
+                                                {% for art in allarticles %}
+                                                {% if((art.id - 1) == article.id) %}
+                                                <div class="meta">Next Article <i class="ion-android-arrow-forward"></i></div>
+                                                <h3 class="post-title"><a href="{{ path('article_view', {'id': art.id}) }}">{{ art.title }}</a></h3>
+                                                {% endif %} {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- /.post-nav -->
+
+                                        <hr />
+                                        <div class="about-author text-left">
+                                            <div class="author-image"><a href="{{ path('profile_see', {id: author.id}) }}"><img alt="" width="200px" src="{{ asset('uploads/photos/' ~ author.photo) }}" /></a></div>
+                                            <h4>About the Author</h4>
+                                            <p><a href="{{ path('profile_see', {id: author.id}) }}">{{ author.description }}</a></p>
+                                            <ul class="social">
+                                                {% if(author.facebook != "no") %}
+                                                    <li> <a target="_blank" href="{{ author.facebook }}"><i class="ion-social-facebook"></i></a> </li>
+                                                {% endif %}
+                                                {% if(author.twitter != "no") %}
+                                                    <li> <a target="_blank" href="{{ author.twitter }}"><i class="ion-social-twitter"></i></a> </li>
+                                                {% endif %}
+                                                {% if(author.instagram != "no") %}
+                                                    <li> <a target="_blank" href="{{ author.instagram }}"><i class="ion-social-instagram"></i></a> </li>
+                                                {% endif %}
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <!-- .about-author -->
+
+                                        <hr />
+                                        <div id="comments" class="text-left">
+                                            <h4>Comments on "{{ article.title }}"</h4>
+                                            <ol id="singlecomments" class="commentlist">
+                                                {% for comment in comments %}
+                                                <li>
+                                                    <div class="message">
+                                                        <div class="user"><img alt="" src="{{ asset('images/art/u4.jpg') }}" class="avatar" /></div>
+                                                        <div class="message-inner">
+                                                            <div class="info">
+                                                                <h5><a href="#">{{ comment.sender }}</a></h5>
+                                                                <div class="meta"> <span class="date">{{ comment.email }}</span></div>
+                                                            </div>
+                                                            <h4>{{ comment.department }}</h4>
+                                                            <p>{{ comment.message }}</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </div>
+                                        <!-- /#comments -->
+
+                                    </div>
+                                    <!-- /.post-content -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                            <!-- /.post -->
+
+                            <div class="comment-form-wrapper text-left">
+                                <h4>Would you like to share your thoughts?</h4>
+                                <p>Your email address will not be published. Required fields are marked *</p>
+                                <form class="form-horizontal" action="{{ path('article_view', {id: article.id}) }}" method="post">
+                                    <fieldset>
+                                    <div class="name-field">
+                                        <input type="text" name="message[sender]" class="form-control" placeholder="Name*" title="Name*" >
+                                    </div>
+                                    <div class="email-field">
+                                        <input type="text" name="message[email]" placeholder="Email*" title="Email*" >
+                                    </div>
+                                    <div class="website-field">
+                                        <input type="text" name="message[department]" placeholder="Subject*" >
+                                    </div>
+                                    <div class="message-field">
+                                        <textarea name="message[message]" id="textarea" rows="5" cols="30" placeholder="Enter your comment here..."></textarea>
+                                    </div>
+                                    {{ form_row(form._token) }}
+                                    <input type="submit" value="Submit" name="submit" class="btn btn-submit" >
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- /.comment-form-wrapper -->
+                        </div>
+                        <!-- /.blog-posts -->
+
+                    </div>
+                    <!-- /.classic-view -->
+
+                </div>
+                <!-- /.blog-content -->
+            </div>
+            <!-- /.blog -->
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock %}
+

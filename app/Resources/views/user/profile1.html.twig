@@ -1,0 +1,102 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper">
+
+        <div class="light-wrapper">
+            <div class="container inner">
+                <div class="blog row">
+                    <div class="col-sm-8 blog-content grid-view">
+                        <div class="blog-content">
+                            <div class="row blog-posts">
+                                {% for article in articles %}
+                                <div class="post col-sm-12 col-md-6">
+                                    <div class="box">
+                                        <h3 class="post-title text-center"><a href="{{ path('article_view', {'id': article.id}) }}">{{ article.title }}</a></h3>
+                                        <div class="meta text-center"><span class="date">Added on: {{ article.dateAdded|date('d-m-Y') }}</span></div>
+                                        <figure class="overlay"><a href="{{ path('article_view', {'id': article.id}) }}"> <img src="{{ asset('uploads/photos/' ~ article.photo) }}" alt="" /></a></figure>
+                                        <div class="post-content">
+                                            <p>{{ article.summary }}</p>
+                                            <div class="text-center"><a href="{{ path('article_view', {'id': article.id}) }}" class="more">Read More</a></div>
+                                        </div>
+                                        <!-- /.post-content -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.post -->
+                                {% endfor %}
+                                <hr />
+
+                            </div>
+                            <!-- /.blog-posts -->
+
+                        </div>
+                        <!-- /.blog-content -->
+
+                    </div>
+                    <!-- /.blog-content -->
+
+                    <aside class="col-sm-4 sidebar">
+                        <div class="sidebox widget">
+                            <h5 class="widget-title">About Me</h5>
+                            <figure> <img src="{{ asset('uploads/photos/' ~ user.photo) }}" class="img-auto" alt="" /> </figure>
+                            <div class="divide10"></div>
+                            <p>{{ user.description }}</p>
+                            <ul class="social">
+                                {% if(user.facebook != "no") %}
+                                    <li> <a target="_blank" href="{{ user.facebook }}"><i class="ion-social-facebook"></i></a> </li>
+                                {% endif %}
+                                {% if(user.twitter != "no") %}
+                                    <li> <a target="_blank" href="{{ user.twitter }}"><i class="ion-social-twitter"></i></a> </li>
+                                {% endif %}
+                                {% if(user.instagram != "no") %}
+                                    <li> <a target="_blank" href="{{ user.instagram }}"><i class="ion-social-instagram"></i></a> </li>
+                                {% endif %}
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- /.widget -->
+
+                        <div class="sidebox widget">
+                            <h5 class="widget-title">Older Posts</h5>
+                            <ul class="post-list">
+                                {% for article in articles|slice(0,5) %}
+                                    {% if(loop.index > 2) %}
+                                        <li>
+                                            <figure class="overlay small"> <a href="{{ path('article_view', {'id': article.id}) }}"><img src="{{ asset('uploads/photos/' ~ article.photo) }}" alt="" /> </a> </figure>
+                                            <div class="post-content">
+                                                <h6 class="post-title"> <a href="{{ path('article_view', {'id': article.id}) }}">{{ article.title }}</a> </h6>
+                                                <div class="meta"><span class="date">Added on: {{ article.dateAdded|date('d-m-Y') }}</span></div>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                            <!-- /.post-list -->
+                        </div>
+                        <!-- /.widget -->
+
+                        <div class="sidebox widget">
+                            <h5 class="widget-title">Categories</h5>
+                            <ul class="list circled">
+                                {% for category in categories %}
+                                    <li style="font-size: 20px;"><a href="#">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- /.widget -->
+                        <!-- /.widget -->
+                    </aside>
+                    <!-- /column .sidebar -->
+
+                </div>
+                <!-- /.blog -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+
+{% endblock %}
+
