@@ -5,6 +5,7 @@ namespace SoftUniBlogBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use SoftUniBlogBundle\Entity\Pages;
 use SoftUniBlogBundle\Entity\Role;
 use SoftUniBlogBundle\Entity\User;
 use SoftUniBlogBundle\Entity\Category;
@@ -90,12 +91,16 @@ class UserController extends Controller
     } else {
         if($user->getProfiletype() == 'first' && $user->getStatus() != 'ban') {
             $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['author' => $this->getUser()], ['id' => 'DESC']);
+            $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser());
+            $pages = $this->getDoctrine()->getRepository(Pages::class)->findBy(['userId' => $user->getId()], ['id' => 'DESC']);
             $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-            return $this->render("user/profile1.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories));
+            return $this->render("user/profile2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages));
         } elseif($user->getProfiletype() == 'second' && $user->getStatus() != 'ban') {
             $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['author' => $this->getUser()], ['id' => 'DESC']);
+            $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser());
+            $pages = $this->getDoctrine()->getRepository(Pages::class)->findBy(['userId' => $user->getId()], ['id' => 'DESC']);
             $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-            return $this->render("user/profile2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories));
+            return $this->render("user/profile2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages));
         }
         if($user->getStatus() == 'ban'){
             $this->redirectToRoute('blog_index');
@@ -130,12 +135,14 @@ class UserController extends Controller
         } else {
             if($user->getProfiletype() == 'first') {
                 $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['authorId' => $id], ['id' => 'DESC']);
+                $pages = $this->getDoctrine()->getRepository(Pages::class)->findBy(['userId' => $user->getId()], ['id' => 'DESC']);
                 $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-                return $this->render("user/profile1.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories));
+                return $this->render("user/profile1.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages));
             } elseif($user->getProfiletype() == 'second') {
                 $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['authorId' => $id], ['id' => 'DESC']);
+                $pages = $this->getDoctrine()->getRepository(Pages::class)->findBy(['userId' => $user->getId()], ['id' => 'DESC']);
                 $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-                return $this->render("user/profile2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories));
+                return $this->render("user/profile2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages));
             }
 
         }

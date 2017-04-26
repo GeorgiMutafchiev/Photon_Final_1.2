@@ -21,27 +21,27 @@ class __TwigTemplate_d3bb87a294b19c60ecab6f8058d694ef05714d7cfd4c6e717f4b26b6f62
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_4e8417f3a253dab714397d548d3efcbe5c96690a3b4fc42705061b554de3acf8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4e8417f3a253dab714397d548d3efcbe5c96690a3b4fc42705061b554de3acf8->enter($__internal_4e8417f3a253dab714397d548d3efcbe5c96690a3b4fc42705061b554de3acf8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/listusers.html.twig"));
+        $__internal_2627b8c47995f4962798b2501a742756cee2777929b30a2c41ff5b4816d260e4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2627b8c47995f4962798b2501a742756cee2777929b30a2c41ff5b4816d260e4->enter($__internal_2627b8c47995f4962798b2501a742756cee2777929b30a2c41ff5b4816d260e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/listusers.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_4e8417f3a253dab714397d548d3efcbe5c96690a3b4fc42705061b554de3acf8->leave($__internal_4e8417f3a253dab714397d548d3efcbe5c96690a3b4fc42705061b554de3acf8_prof);
+        $__internal_2627b8c47995f4962798b2501a742756cee2777929b30a2c41ff5b4816d260e4->leave($__internal_2627b8c47995f4962798b2501a742756cee2777929b30a2c41ff5b4816d260e4_prof);
 
     }
 
     // line 3
     public function block_main($context, array $blocks = array())
     {
-        $__internal_85aa480c4be5cb96728dc92edd679021a7ae2e847dfb25e2d4f22f6e950dbfcd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_85aa480c4be5cb96728dc92edd679021a7ae2e847dfb25e2d4f22f6e950dbfcd->enter($__internal_85aa480c4be5cb96728dc92edd679021a7ae2e847dfb25e2d4f22f6e950dbfcd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
+        $__internal_bf06a7975ed5b9010252933c369355b2d10b5c106bd6c37775e153a0285dd7b3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bf06a7975ed5b9010252933c369355b2d10b5c106bd6c37775e153a0285dd7b3->enter($__internal_bf06a7975ed5b9010252933c369355b2d10b5c106bd6c37775e153a0285dd7b3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
 
         // line 4
         echo "    <div class=\"content-wrapper\">
 
         <div class=\"light-wrapper\">
             <h1>List of all users:</h1>
-
+            <div class=\"table-responsive\">
             <table class=\"table table-hover\">
                 <thead>
                 <tr>
@@ -108,13 +108,14 @@ class __TwigTemplate_d3bb87a294b19c60ecab6f8058d694ef05714d7cfd4c6e717f4b26b6f62
         // line 39
         echo "                </tbody>
             </table>
+            </div>
         </div>
         <!-- /.light-wrapper -->
     </div>
 
 ";
         
-        $__internal_85aa480c4be5cb96728dc92edd679021a7ae2e847dfb25e2d4f22f6e950dbfcd->leave($__internal_85aa480c4be5cb96728dc92edd679021a7ae2e847dfb25e2d4f22f6e950dbfcd_prof);
+        $__internal_bf06a7975ed5b9010252933c369355b2d10b5c106bd6c37775e153a0285dd7b3->leave($__internal_bf06a7975ed5b9010252933c369355b2d10b5c106bd6c37775e153a0285dd7b3_prof);
 
     }
 
@@ -142,7 +143,7 @@ class __TwigTemplate_d3bb87a294b19c60ecab6f8058d694ef05714d7cfd4c6e717f4b26b6f62
 
         <div class=\"light-wrapper\">
             <h1>List of all users:</h1>
-
+            <div class=\"table-responsive\">
             <table class=\"table table-hover\">
                 <thead>
                 <tr>
@@ -175,6 +176,7 @@ class __TwigTemplate_d3bb87a294b19c60ecab6f8058d694ef05714d7cfd4c6e717f4b26b6f62
                 {% endfor %}
                 </tbody>
             </table>
+            </div>
         </div>
         <!-- /.light-wrapper -->
     </div>

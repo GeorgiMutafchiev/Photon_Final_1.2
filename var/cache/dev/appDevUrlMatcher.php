@@ -159,6 +159,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_blog_index:
 
+        if (0 === strpos($pathinfo, '/pages')) {
+            // page_create
+            if ($pathinfo === '/pages/create') {
+                return array (  '_controller' => 'SoftUniBlogBundle\\Controller\\PagesController::pageCreate',  '_route' => 'page_create',);
+            }
+
+            // page_view
+            if (preg_match('#^/pages/(?P<id>[^/\\-]++)\\-(?P<src>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_view')), array (  '_controller' => 'SoftUniBlogBundle\\Controller\\PagesController::pageAction',));
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             // security_login
             if ($pathinfo === '/login') {

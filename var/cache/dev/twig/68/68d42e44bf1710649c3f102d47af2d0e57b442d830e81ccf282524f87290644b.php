@@ -21,20 +21,20 @@ class __TwigTemplate_bcf49121a25bb418296c724d362edf905a6e9953e2feb34e2ce2a8f5b53
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6c361288ecc705a3bd8b5b1349dda942b570573d04387cdf65c5e129e54270a3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6c361288ecc705a3bd8b5b1349dda942b570573d04387cdf65c5e129e54270a3->enter($__internal_6c361288ecc705a3bd8b5b1349dda942b570573d04387cdf65c5e129e54270a3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/settings.html.twig"));
+        $__internal_efca4c7f40429fa1eb31a8fecc911edccd05e28e586d70bd3bfa7d81744fd697 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_efca4c7f40429fa1eb31a8fecc911edccd05e28e586d70bd3bfa7d81744fd697->enter($__internal_efca4c7f40429fa1eb31a8fecc911edccd05e28e586d70bd3bfa7d81744fd697_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/settings.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6c361288ecc705a3bd8b5b1349dda942b570573d04387cdf65c5e129e54270a3->leave($__internal_6c361288ecc705a3bd8b5b1349dda942b570573d04387cdf65c5e129e54270a3_prof);
+        $__internal_efca4c7f40429fa1eb31a8fecc911edccd05e28e586d70bd3bfa7d81744fd697->leave($__internal_efca4c7f40429fa1eb31a8fecc911edccd05e28e586d70bd3bfa7d81744fd697_prof);
 
     }
 
     // line 3
     public function block_main($context, array $blocks = array())
     {
-        $__internal_ccc13b597bb640337afed805dd4636d9146702d4620f1d797307dbf00ebd161f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ccc13b597bb640337afed805dd4636d9146702d4620f1d797307dbf00ebd161f->enter($__internal_ccc13b597bb640337afed805dd4636d9146702d4620f1d797307dbf00ebd161f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
+        $__internal_27d078f6bbdba3f7894146505eb749d1d87bb3d9da02315f3faa5598cae38250 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_27d078f6bbdba3f7894146505eb749d1d87bb3d9da02315f3faa5598cae38250->enter($__internal_27d078f6bbdba3f7894146505eb749d1d87bb3d9da02315f3faa5598cae38250_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
 
         // line 4
         echo "    <div class=\"container body-content span=8\">
@@ -184,11 +184,24 @@ class __TwigTemplate_bcf49121a25bb418296c724d362edf905a6e9953e2feb34e2ce2a8f5b53
                     </div>
                 </fieldset>
             </form>
+            <br>
+            <fieldset>
+                <legend>Add pages:</legend>
+            <div class=\"form-group\">
+                <div class=\"col-sm-4 col-sm-offset-4\">
+                    <a href=\"";
+        // line 108
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("page_create");
+        echo "\"><button class=\"btn btn-success\">Create new page</button></a>
+                </div>
+            </div>
+            <br>
+            </fieldset>
         </div>
     </div>
 ";
         
-        $__internal_ccc13b597bb640337afed805dd4636d9146702d4620f1d797307dbf00ebd161f->leave($__internal_ccc13b597bb640337afed805dd4636d9146702d4620f1d797307dbf00ebd161f_prof);
+        $__internal_27d078f6bbdba3f7894146505eb749d1d87bb3d9da02315f3faa5598cae38250->leave($__internal_27d078f6bbdba3f7894146505eb749d1d87bb3d9da02315f3faa5598cae38250_prof);
 
     }
 
@@ -204,7 +217,7 @@ class __TwigTemplate_bcf49121a25bb418296c724d362edf905a6e9953e2feb34e2ce2a8f5b53
 
     public function getDebugInfo()
     {
-        return array (  180 => 97,  173 => 93,  166 => 89,  155 => 81,  144 => 73,  133 => 65,  122 => 57,  111 => 49,  100 => 41,  88 => 32,  77 => 24,  67 => 17,  63 => 16,  59 => 15,  55 => 14,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  194 => 108,  180 => 97,  173 => 93,  166 => 89,  155 => 81,  144 => 73,  133 => 65,  122 => 57,  111 => 49,  100 => 41,  88 => 32,  77 => 24,  67 => 17,  63 => 16,  59 => 15,  55 => 14,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     public function getSource()
@@ -311,6 +324,16 @@ class __TwigTemplate_bcf49121a25bb418296c724d362edf905a6e9953e2feb34e2ce2a8f5b53
                     </div>
                 </fieldset>
             </form>
+            <br>
+            <fieldset>
+                <legend>Add pages:</legend>
+            <div class=\"form-group\">
+                <div class=\"col-sm-4 col-sm-offset-4\">
+                    <a href=\"{{ path('page_create') }}\"><button class=\"btn btn-success\">Create new page</button></a>
+                </div>
+            </div>
+            <br>
+            </fieldset>
         </div>
     </div>
 {% endblock %}

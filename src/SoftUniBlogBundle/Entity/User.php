@@ -81,6 +81,14 @@ class User implements UserInterface
     /**
      * @var ArrayCollection
      *
+     * @ORM\OneToMany(targetEntity="SoftUniBlogBundle\Entity\Pages", mappedBy="author")
+     */
+    private $pages;
+
+
+    /**
+     * @var ArrayCollection
+     *
      * @ManyToMany(targetEntity="SoftUniBlogBundle\Entity\Role")
      * @JoinTable(name="users_roles",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
@@ -222,6 +230,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->pages = new ArrayCollection();
         $this->roles = new ArrayCollection();
     }
 
@@ -231,6 +240,14 @@ class User implements UserInterface
     public function getArticles()
     {
         return $this->articles;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPages()
+    {
+        return $this->pages;
     }
 
     /**

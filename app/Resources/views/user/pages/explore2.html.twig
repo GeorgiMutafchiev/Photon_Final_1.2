@@ -1,0 +1,107 @@
+{% extends 'light.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper" >
+
+        <div class="light-wrapper" >
+            <div class="container inner">
+                <div class="blog row">
+                    <div class="col-sm-12 blog-content grid-view">
+
+                    <section id="home">
+                        <div class="dark-wrapper">
+                            <div class="container inner">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <h2 class="section-title text-center">Explore PHOTON's Posts</h2>
+                                        <p class="lead text-center">Thanks for taking some time to visit PHOTON member's posts. Here you will be able to find their latest and favorite works.</p>
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                                <div class="divide20"></div>
+                                <div id="js-lightbox-filter" class="cbp-filter-container text-center">
+                                    <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All</div>
+                                    <div data-filter=".1" class="cbp-filter-item">Nature</div>
+                                    <div data-filter=".2" class="cbp-filter-item">Portrait</div>
+                                    <div data-filter=".3" class="cbp-filter-item">Outdoor</div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="divide25"></div>
+                                <div id="js-grid-lightbox" class="cbp cbp-l-grid-inline light-gallery">
+                                    {% for article in articles%}
+                                        <div class="cbp-item {{ article.category}} conceptual food-drink"> <a href="{{ path('article_view', {'id': article.id}) }}" class="cbp-caption" >
+                                                <div class="cbp-caption-defaultWrap"> <img width="200px" src="{{ asset('uploads/photos/' ~ article.photo) }}" alt=""> </div>
+                                                <div class="cbp-caption-activeWrap">
+                                                    <div class="cbp-l-caption-alignCenter">
+                                                        <div class="cbp-l-caption-body">
+                                                            <div class="cbp-l-caption-title">
+                                                                <h5>{{ article.title }}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="caption{{ article.id }}" class="hidden">
+                                                    <a href="{{ path('article_view', {'id': article.id}) }}"><h4>{{ article.title }}</h4></a>
+                                                    <p>{{ article.author }}</p>
+                                                </div>
+                                            </a> </div>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- /.container -->
+                        </div>
+                        <!-- /.dark-wrapper -->
+                    </section>
+                    </div>
+                    <aside class="col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-8">
+                        <div class="sidebox widget">
+                            <h1 class="widget-title">About Me</h1>
+                            <figure>{{ user.fullName }}</figure>
+                            <div class="divide10"></div>
+                            <p>{{ user.description }}</p>
+                            <ul class="social">
+                                {% if(user.facebook != "no") %}
+                                    <li> <a target="_blank" href="{{ user.facebook }}"><i class="ion-social-facebook"></i></a> </li>
+                                {% endif %}
+                                {% if(user.twitter != "no") %}
+                                    <li> <a target="_blank" href="{{ user.twitter }}"><i class="ion-social-twitter"></i></a> </li>
+                                {% endif %}
+                                {% if(user.instagram != "no") %}
+                                    <li> <a target="_blank" href="{{ user.instagram }}"><i class="ion-social-instagram"></i></a> </li>
+                                {% endif %}
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- /.widget -->
+                        <!-- /.widget -->
+                            </div>
+                        <div class="sidebox widget col-sm-4">
+                            <h5 class="widget-title">Pages</h5>
+                            <ul class="list circled">
+                                {% for page in pages %}
+                                    <li style="font-size: 20px;"><a href="{{ path('page_view', {id: user.id, src: page.src}) }}">{{ page.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- /.widget -->
+                        <!-- /.widget -->
+                        </div>
+                    </aside>
+                    <!-- /column .sidebar -->
+
+                </div>
+                <!-- /.blog -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}
+

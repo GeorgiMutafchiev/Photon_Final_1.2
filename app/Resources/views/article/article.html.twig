@@ -43,7 +43,7 @@
                                         <div class="about-author text-left">
                                             <div class="author-image"><a href="{{ path('profile_see', {id: author.id}) }}"><img alt="" width="200px" src="{{ asset('uploads/photos/' ~ author.photo) }}" /></a></div>
                                             <h4>About the Author</h4>
-                                            <p><a href="{{ path('profile_see', {id: author.id}) }}">{{ author.description }}</a></p>
+                                            <p><a href="{{ path('profile_see', {id: author.id}) }}">{{ author.fullName }}</a></p>
                                             <ul class="social">
                                                 {% if(author.facebook != "no") %}
                                                     <li> <a target="_blank" href="{{ author.facebook }}"><i class="ion-social-facebook"></i></a> </li>

@@ -64,10 +64,10 @@ class User extends \SoftUniBlogBundle\Entity\User implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'id', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'fullName', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'status', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'photo', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'profiletype', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'description', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'facebook', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'twitter', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'instagram'];
+            return ['__isInitialized__', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'id', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'fullName', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'status', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'pages', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'photo', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'profiletype', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'description', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'facebook', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'twitter', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'instagram'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'id', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'fullName', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'status', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'photo', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'profiletype', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'description', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'facebook', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'twitter', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'instagram'];
+        return ['__isInitialized__', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'id', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'fullName', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'status', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'articles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'pages', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'photo', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'profiletype', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'description', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'facebook', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'twitter', '' . "\0" . 'SoftUniBlogBundle\\Entity\\User' . "\0" . 'instagram'];
     }
 
     /**
@@ -336,6 +336,17 @@ class User extends \SoftUniBlogBundle\Entity\User implements \Doctrine\ORM\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArticles', []);
 
         return parent::getArticles();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPages()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPages', []);
+
+        return parent::getPages();
     }
 
     /**

@@ -1,0 +1,52 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" action="{{ path('page_create') }}" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Add new PAGE:</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_title">Page Name</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Page Name"
+                                   name="pages[name]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Select Theme</label>
+                        <div class="col-sm-6">
+                            <select class="selectpicker" name="pages[color]">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_category">Select Page Type</label>
+                        <div class="col-sm-6">
+                            <select class="selectpicker" name="pages[elements]" title="Choose one of the following...">
+                                <option value="explore">Explore gallery</option>
+                                <option value="profileInfo">Profile information</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    {{ form_row(form._token) }}
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" href="{{ path('blog_index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Create new page</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

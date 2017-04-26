@@ -41,7 +41,7 @@
                             <h5 class="widget-title">About Me</h5>
                             <figure> <img src="{{ asset('uploads/photos/' ~ user.photo) }}" class="img-auto" alt="" /> </figure>
                             <div class="divide10"></div>
-                            <p>{{ user.description }}</p>
+                            <p>{{ user.fullName }}</p>
                             <ul class="social">
                                 {% if(user.facebook != "no") %}
                                     <li> <a target="_blank" href="{{ user.facebook }}"><i class="ion-social-facebook"></i></a> </li>
@@ -77,10 +77,10 @@
                         <!-- /.widget -->
 
                         <div class="sidebox widget">
-                            <h5 class="widget-title">Categories</h5>
+                            <h5 class="widget-title">Pages</h5>
                             <ul class="list circled">
-                                {% for category in categories %}
-                                    <li style="font-size: 20px;"><a href="#">{{ category.name }}</a></li>
+                                {% for page in pages %}
+                                    <li style="font-size: 20px;"><a href="{{ path('page_view', {id: user.id, src: page.src}) }}">{{ page.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>

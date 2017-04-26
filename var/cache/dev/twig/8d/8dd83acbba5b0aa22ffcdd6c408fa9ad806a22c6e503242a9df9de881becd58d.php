@@ -21,20 +21,20 @@ class __TwigTemplate_b2222bd83f7d48bcafc13fda429181cbb004a19a627589f4bee64a86e14
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6603080209d599a934b1b784437ccea3645ee469c577ff57f38661e50825b576 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6603080209d599a934b1b784437ccea3645ee469c577ff57f38661e50825b576->enter($__internal_6603080209d599a934b1b784437ccea3645ee469c577ff57f38661e50825b576_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "article/article.html.twig"));
+        $__internal_6d9e88790bf11a4ee97e69cdde13bed60c08be5e0f83f530089e014d3df405f9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6d9e88790bf11a4ee97e69cdde13bed60c08be5e0f83f530089e014d3df405f9->enter($__internal_6d9e88790bf11a4ee97e69cdde13bed60c08be5e0f83f530089e014d3df405f9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "article/article.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6603080209d599a934b1b784437ccea3645ee469c577ff57f38661e50825b576->leave($__internal_6603080209d599a934b1b784437ccea3645ee469c577ff57f38661e50825b576_prof);
+        $__internal_6d9e88790bf11a4ee97e69cdde13bed60c08be5e0f83f530089e014d3df405f9->leave($__internal_6d9e88790bf11a4ee97e69cdde13bed60c08be5e0f83f530089e014d3df405f9_prof);
 
     }
 
     // line 3
     public function block_main($context, array $blocks = array())
     {
-        $__internal_a89bdc57b1dd14b25328df7473bb6215fc0dff6d8cdfb23de86b6f854a4116c5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a89bdc57b1dd14b25328df7473bb6215fc0dff6d8cdfb23de86b6f854a4116c5->enter($__internal_a89bdc57b1dd14b25328df7473bb6215fc0dff6d8cdfb23de86b6f854a4116c5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
+        $__internal_89616679289374309b3432591a24f6b82caf08bfd1939cc10e6b1aaea4fb01f4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_89616679289374309b3432591a24f6b82caf08bfd1939cc10e6b1aaea4fb01f4->enter($__internal_89616679289374309b3432591a24f6b82caf08bfd1939cc10e6b1aaea4fb01f4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
 
         // line 4
         echo "
@@ -140,7 +140,7 @@ class __TwigTemplate_b2222bd83f7d48bcafc13fda429181cbb004a19a627589f4bee64a86e14
         // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("profile_see", array("id" => $this->getAttribute((isset($context["author"]) ? $context["author"] : $this->getContext($context, "author")), "id", array()))), "html", null, true);
         echo "\">";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["author"]) ? $context["author"] : $this->getContext($context, "author")), "description", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["author"]) ? $context["author"] : $this->getContext($context, "author")), "fullName", array()), "html", null, true);
         echo "</a></p>
                                             <ul class=\"social\">
                                                 ";
@@ -279,7 +279,7 @@ class __TwigTemplate_b2222bd83f7d48bcafc13fda429181cbb004a19a627589f4bee64a86e14
     </div>
 ";
         
-        $__internal_a89bdc57b1dd14b25328df7473bb6215fc0dff6d8cdfb23de86b6f854a4116c5->leave($__internal_a89bdc57b1dd14b25328df7473bb6215fc0dff6d8cdfb23de86b6f854a4116c5_prof);
+        $__internal_89616679289374309b3432591a24f6b82caf08bfd1939cc10e6b1aaea4fb01f4->leave($__internal_89616679289374309b3432591a24f6b82caf08bfd1939cc10e6b1aaea4fb01f4_prof);
 
     }
 
@@ -345,7 +345,7 @@ class __TwigTemplate_b2222bd83f7d48bcafc13fda429181cbb004a19a627589f4bee64a86e14
                                         <div class=\"about-author text-left\">
                                             <div class=\"author-image\"><a href=\"{{ path('profile_see', {id: author.id}) }}\"><img alt=\"\" width=\"200px\" src=\"{{ asset('uploads/photos/' ~ author.photo) }}\" /></a></div>
                                             <h4>About the Author</h4>
-                                            <p><a href=\"{{ path('profile_see', {id: author.id}) }}\">{{ author.description }}</a></p>
+                                            <p><a href=\"{{ path('profile_see', {id: author.id}) }}\">{{ author.fullName }}</a></p>
                                             <ul class=\"social\">
                                                 {% if(author.facebook != \"no\") %}
                                                     <li> <a target=\"_blank\" href=\"{{ author.facebook }}\"><i class=\"ion-social-facebook\"></i></a> </li>

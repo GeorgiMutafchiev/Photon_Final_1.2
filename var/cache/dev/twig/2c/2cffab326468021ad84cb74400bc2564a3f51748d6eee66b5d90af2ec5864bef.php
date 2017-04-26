@@ -21,20 +21,20 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2e5ba2c32d06029b0d8de5555a746fc75f98610b40c90a0e517b32d8ea4cd932 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2e5ba2c32d06029b0d8de5555a746fc75f98610b40c90a0e517b32d8ea4cd932->enter($__internal_2e5ba2c32d06029b0d8de5555a746fc75f98610b40c90a0e517b32d8ea4cd932_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/profile2.html.twig"));
+        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d->enter($__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/profile2.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_2e5ba2c32d06029b0d8de5555a746fc75f98610b40c90a0e517b32d8ea4cd932->leave($__internal_2e5ba2c32d06029b0d8de5555a746fc75f98610b40c90a0e517b32d8ea4cd932_prof);
+        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d->leave($__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d_prof);
 
     }
 
     // line 3
     public function block_main($context, array $blocks = array())
     {
-        $__internal_c8845f0372139f7704dae9411df38e5302f3820f4a19a6b936433e80d5d01678 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c8845f0372139f7704dae9411df38e5302f3820f4a19a6b936433e80d5d01678->enter($__internal_c8845f0372139f7704dae9411df38e5302f3820f4a19a6b936433e80d5d01678_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
+        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a->enter($__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
 
         // line 4
         echo "    <div class=\"content-wrapper\" >
@@ -194,7 +194,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
                             <div class=\"divide10\"></div>
                             <p>";
         // line 73
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "description", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullName", array()), "html", null, true);
         echo "</p>
                             <ul class=\"social\">
                                 ";
@@ -298,21 +298,23 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
                         <!-- /.widget -->
 
                         <div class=\"sidebox widget\">
-                            <h5 class=\"widget-title\">Categories</h5>
+                            <h5 class=\"widget-title\">Pages</h5>
                             <ul class=\"list circled\">
                                 ";
         // line 111
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
-        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context["pages"]) ? $context["pages"] : $this->getContext($context, "pages")));
+        foreach ($context['_seq'] as $context["_key"] => $context["page"]) {
             // line 112
-            echo "                                    <li style=\"font-size: 20px;\"><a href=\"#\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "name", array()), "html", null, true);
+            echo "                                    <li style=\"font-size: 20px;\"><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("page_view", array("id" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id", array()), "src" => $this->getAttribute($context["page"], "src", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["page"], "name", array()), "html", null, true);
             echo "</a></li>
                                 ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['page'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 114
         echo "                            </ul>
@@ -334,7 +336,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
 ";
         
-        $__internal_c8845f0372139f7704dae9411df38e5302f3820f4a19a6b936433e80d5d01678->leave($__internal_c8845f0372139f7704dae9411df38e5302f3820f4a19a6b936433e80d5d01678_prof);
+        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a->leave($__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a_prof);
 
     }
 
@@ -350,7 +352,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
     public function getDebugInfo()
     {
-        return array (  318 => 114,  309 => 112,  305 => 111,  295 => 103,  281 => 102,  274 => 98,  268 => 97,  261 => 95,  258 => 94,  255 => 93,  238 => 92,  228 => 84,  222 => 82,  219 => 81,  213 => 79,  210 => 78,  204 => 76,  202 => 75,  197 => 73,  192 => 71,  173 => 54,  159 => 53,  149 => 46,  145 => 45,  138 => 43,  134 => 42,  128 => 41,  124 => 39,  121 => 38,  104 => 37,  94 => 29,  79 => 20,  75 => 19,  69 => 18,  65 => 17,  59 => 16,  54 => 13,  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  320 => 114,  309 => 112,  305 => 111,  295 => 103,  281 => 102,  274 => 98,  268 => 97,  261 => 95,  258 => 94,  255 => 93,  238 => 92,  228 => 84,  222 => 82,  219 => 81,  213 => 79,  210 => 78,  204 => 76,  202 => 75,  197 => 73,  192 => 71,  173 => 54,  159 => 53,  149 => 46,  145 => 45,  138 => 43,  134 => 42,  128 => 41,  124 => 39,  121 => 38,  104 => 37,  94 => 29,  79 => 20,  75 => 19,  69 => 18,  65 => 17,  59 => 16,  54 => 13,  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     public function getSource()
@@ -427,7 +429,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
                             <h5 class=\"widget-title\">About Me</h5>
                             <figure> <img src=\"{{ asset('uploads/photos/' ~ user.photo) }}\" class=\"img-auto\" alt=\"\" /> </figure>
                             <div class=\"divide10\"></div>
-                            <p>{{ user.description }}</p>
+                            <p>{{ user.fullName }}</p>
                             <ul class=\"social\">
                                 {% if(user.facebook != \"no\") %}
                                 <li> <a target=\"_blank\" href=\"{{ user.facebook }}\"><i class=\"ion-social-facebook\"></i></a> </li>
@@ -463,10 +465,10 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
                         <!-- /.widget -->
 
                         <div class=\"sidebox widget\">
-                            <h5 class=\"widget-title\">Categories</h5>
+                            <h5 class=\"widget-title\">Pages</h5>
                             <ul class=\"list circled\">
-                                {% for category in categories %}
-                                    <li style=\"font-size: 20px;\"><a href=\"#\">{{ category.name }}</a></li>
+                                {% for page in pages %}
+                                    <li style=\"font-size: 20px;\"><a href=\"{{ path('page_view', {id: user.id, src: page.src}) }}\">{{ page.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>

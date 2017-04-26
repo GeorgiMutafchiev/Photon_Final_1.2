@@ -1,0 +1,66 @@
+{% extends 'light.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper" >
+
+        <div class="light-wrapper" >
+            <div class="container inner">
+                <div class="blog row">
+                    <div class="col-sm-12 blog-content grid-view">
+
+
+                    </div>
+                    <aside class="col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebox widget">
+                                    <h1 class="widget-title">About Me</h1>
+                                    <figure class="overlay small"><img src="{{ asset('uploads/photos/' ~ user.photo) }}" alt="" /></figure>
+
+                                    <div class="divide10"></div>
+                                    <p>{{ user.description }}</p>
+                                    <ul class="social">
+                                        {% if(user.facebook != "no") %}
+                                            <li> <a target="_blank" href="{{ user.facebook }}"><i class="ion-social-facebook"></i></a> </li>
+                                        {% endif %}
+                                        {% if(user.twitter != "no") %}
+                                            <li> <a target="_blank" href="{{ user.twitter }}"><i class="ion-social-twitter"></i></a> </li>
+                                        {% endif %}
+                                        {% if(user.instagram != "no") %}
+                                            <li> <a target="_blank" href="{{ user.instagram }}"><i class="ion-social-instagram"></i></a> </li>
+                                        {% endif %}
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- /.widget -->
+                                <!-- /.widget -->
+                            </div>
+                            <div class="sidebox widget col-sm-4">
+                                <figure><h1>{{ user.fullName }}</h1></figure>
+                                <figure><h1>{{ user.email }}</h1></figure>
+                                <hr>
+                                <h5 class="widget-title">Pages</h5>
+                                <ul class="list circled">
+                                    {% for page in pages %}
+                                        <li style="font-size: 20px;"><a href="{{ path('page_view', {id: user.id, src: page.src}) }}">{{ page.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- /.widget -->
+                            <!-- /.widget -->
+                        </div>
+                    </aside>
+                    <!-- /column .sidebar -->
+
+                </div>
+                <!-- /.blog -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}
+
