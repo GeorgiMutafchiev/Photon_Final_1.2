@@ -15,8 +15,8 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1e60d04a4e48582eb59e786b5d7e078e5897adc854f57cb0dfbf6d9022fb2700 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1e60d04a4e48582eb59e786b5d7e078e5897adc854f57cb0dfbf6d9022fb2700->enter($__internal_1e60d04a4e48582eb59e786b5d7e078e5897adc854f57cb0dfbf6d9022fb2700_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/newprofile.html.twig"));
+        $__internal_3a9d8ff864e5f3a21c46d4549c1973ed32f1c7062961ed6d2cb789f1fc250f9f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3a9d8ff864e5f3a21c46d4549c1973ed32f1c7062961ed6d2cb789f1fc250f9f->enter($__internal_3a9d8ff864e5f3a21c46d4549c1973ed32f1c7062961ed6d2cb789f1fc250f9f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/newprofile.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -89,6 +89,7 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
         // line 37
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "photo", array()), "html", null, true);
         echo "\" name=\"user[photo]\" class=\"email\">
+            <input type=\"hidden\" value=\"ok\" name=\"user[status]\" class=\"email\">
             <input type=\"text\" value=\"\" name=\"user[facebook]\" class=\"email\" placeholder=\"Facebook account\" required=\"\">
             <input type=\"text\" value=\"\" name=\"user[twitter]\" class=\"email\" placeholder=\"Twitter account\" required=\"\">
             <input type=\"text\" value=\"\" name=\"user[instagram]\" class=\"email\" placeholder=\"Instagram account\" required=\"\">
@@ -100,14 +101,14 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
             <label>
                 <input type=\"radio\" name=\"user[profiletype]\" value=\"first\" />
                 <img width=\"300px\" src=\"";
-        // line 48
+        // line 49
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/profile1.JPG"), "html", null, true);
         echo "\">
             </label>
             <label>
                 <input type=\"radio\" name=\"user[profiletype]\" value=\"second\" />
                 <img width=\"300px\" src=\"";
-        // line 52
+        // line 53
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/profile2.JPG"), "html", null, true);
         echo "\">
             </label>
@@ -136,41 +137,41 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
 
 <!-- /footer -->
 <script type=\"text/javascript\" src=\"";
-        // line 78
+        // line 79
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 79
+        // line 80
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 80
+        // line 81
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/profile_plugins.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 81
+        // line 82
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/scripts.js"), "html", null, true);
         echo "\"></script>
 <script>
     \$.backstretch([
         \"";
-        // line 84
+        // line 85
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/slider-bg1.jpg"), "html", null, true);
         echo "\"
         , \"";
-        // line 85
+        // line 86
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/slider-bg2.jpg"), "html", null, true);
         echo "\"
         , \"";
-        // line 86
+        // line 87
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/slider-bg5.jpg"), "html", null, true);
         echo "\"
         , \"";
-        // line 87
+        // line 88
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/slider-bg6.jpg"), "html", null, true);
         echo "\"
         , \"";
-        // line 88
+        // line 89
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("images/art/slider-bg7.jpg"), "html", null, true);
         echo "\"
     ], {duration: 3000, fade: 750});
@@ -179,7 +180,7 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
 </html>
 ";
         
-        $__internal_1e60d04a4e48582eb59e786b5d7e078e5897adc854f57cb0dfbf6d9022fb2700->leave($__internal_1e60d04a4e48582eb59e786b5d7e078e5897adc854f57cb0dfbf6d9022fb2700_prof);
+        $__internal_3a9d8ff864e5f3a21c46d4549c1973ed32f1c7062961ed6d2cb789f1fc250f9f->leave($__internal_3a9d8ff864e5f3a21c46d4549c1973ed32f1c7062961ed6d2cb789f1fc250f9f_prof);
 
     }
 
@@ -195,7 +196,7 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
 
     public function getDebugInfo()
     {
-        return array (  174 => 88,  170 => 87,  166 => 86,  162 => 85,  158 => 84,  152 => 81,  148 => 80,  144 => 79,  140 => 78,  111 => 52,  104 => 48,  90 => 37,  86 => 36,  82 => 35,  78 => 34,  74 => 33,  62 => 24,  47 => 12,  43 => 11,  39 => 10,  35 => 9,  31 => 8,  22 => 1,);
+        return array (  175 => 89,  171 => 88,  167 => 87,  163 => 86,  159 => 85,  153 => 82,  149 => 81,  145 => 80,  141 => 79,  112 => 53,  105 => 49,  90 => 37,  86 => 36,  82 => 35,  78 => 34,  74 => 33,  62 => 24,  47 => 12,  43 => 11,  39 => 10,  35 => 9,  31 => 8,  22 => 1,);
     }
 
     public function getSource()
@@ -237,6 +238,7 @@ class __TwigTemplate_5e06a7f4f0174ccf626d1a2989ee6e7e83e04e60140252b9d2b84effa97
             <input type=\"hidden\" value=\"{{ user.email }}\" name=\"user[email]\" class=\"email\">
             <input type=\"hidden\" value=\"{{ user.password }}\" name=\"user[password]\" class=\"email\">
             <input type=\"hidden\" value=\"{{ user.photo }}\" name=\"user[photo]\" class=\"email\">
+            <input type=\"hidden\" value=\"ok\" name=\"user[status]\" class=\"email\">
             <input type=\"text\" value=\"\" name=\"user[facebook]\" class=\"email\" placeholder=\"Facebook account\" required=\"\">
             <input type=\"text\" value=\"\" name=\"user[twitter]\" class=\"email\" placeholder=\"Twitter account\" required=\"\">
             <input type=\"text\" value=\"\" name=\"user[instagram]\" class=\"email\" placeholder=\"Instagram account\" required=\"\">

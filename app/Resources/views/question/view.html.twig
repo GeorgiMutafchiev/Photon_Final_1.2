@@ -1,0 +1,78 @@
+{% extends 'base3.html.twig' %}
+
+{% block main %}
+
+    <div class="light-wrapper">
+        <div class="container inner">
+            <div class="blog row">
+                <div class="col-sm-12">
+                    <div class="blog-content classic-view single">
+                        <div class="blog-posts">
+                            <div class="post">
+                                <div class="box">
+                                    <div class="post-content">
+                                        <h1 class="post-title text-center">{{ question.name }}</h1>
+                                        <h5 class="text-center">This question is added on: {{ question.date|date('d-m-Y') }} | Author : <a href="{{ path('profile_see', {id: author.id}) }}">{{ author.fullName }}</a></h5>
+                                        <div id="comments" class="text-left">
+                                            <ol id="singlecomments" class="commentlist">
+                                                {% for answer in answers %}
+                                                    <li>
+                                                        <div class="message">
+                                                            <div class="user"><img alt="" src="{{ asset('images/art/u4.jpg') }}" class="avatar" /></div>
+                                                            <div class="message-inner">
+                                                                <div class="info">
+                                                                    <h5><a href="#">{{ answer.sender }}</a></h5>
+                                                                    <div class="meta"> <span class="date">{{ answer.email }}</span></div>
+                                                                </div>
+                                                                <p>{{ answer.message }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </div>
+                                        <!-- /#comments -->
+
+                                    </div>
+                                    <!-- /.post-content -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                            <!-- /.post -->
+
+                            <div class="comment-form-wrapper text-left">
+                                <h4>Would you like to share your thoughts?</h4>
+                                <p>Your email address will not be published. Required fields are marked *</p>
+                                <form class="form-horizontal" action="{{ path('question_view', {id: question.id}) }}" method="post">
+                                    <fieldset>
+                                        <div class="name-field">
+                                            <input type="text" name="answer[sender]" class="form-control" placeholder="Name*" title="Name*" >
+                                        </div>
+                                        <div class="email-field">
+                                            <input type="text" name="answer[email]" placeholder="Email*" title="Email*" >
+                                        </div>
+                                        <div class="message-field">
+                                            <textarea name="answer[message]" id="textarea" rows="5" cols="30" placeholder="Enter your answer here..."></textarea>
+                                        </div>
+                                        {{ form_row(form._token) }}
+                                        <input type="submit" value="Submit" name="submit" class="btn btn-submit" >
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- /.comment-form-wrapper -->
+                        </div>
+                        <!-- /.blog-posts -->
+
+                    </div>
+                    <!-- /.classic-view -->
+
+                </div>
+                <!-- /.blog-content -->
+            </div>
+            <!-- /.blog -->
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock %}
+

@@ -84,6 +84,14 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        <div class="sidebox widget">
+                            <h5 class="widget-title">Questions</h5>
+                            <ul class="list circled">
+                                {% for question in questions %}
+                                    <li style="font-size: 20px;"><a href="{{ path('question_view', {id: question.id}) }}">{{ question.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                         <!-- /.widget -->
                         <!-- /.widget -->
                     </aside>

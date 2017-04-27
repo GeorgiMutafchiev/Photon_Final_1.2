@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use SoftUniBlogBundle\Entity\Article;
 use SoftUniBlogBundle\Entity\Category;
 use SoftUniBlogBundle\Entity\Pages;
+use SoftUniBlogBundle\Entity\Question;
 use SoftUniBlogBundle\Entity\User;
 use SoftUniBlogBundle\Form\ArticleType;
 use SoftUniBlogBundle\Form\MessageType;
@@ -53,7 +54,6 @@ class PagesController extends Controller
      * @Route("/pages/{id}-{src}", name="page_view")
      * @param $id
      * @param $src
-     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function pageAction($id, $src)
@@ -69,6 +69,11 @@ class PagesController extends Controller
 
             if($pageContent[0]->getElements() == 'explore') {
                 return $this->render("user/pages/explore2.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages, 'page' => $pageContent));
+            }
+
+            if($pageContent[0]->getElements() == 'forum') {
+                $questions = $this->getDoctrine()->getRepository(Question::class)->findBy(['userId' => $id], ['id' => 'DESC']);
+                return $this->render("user/pages/forum.html.twig", array('user' => $user, 'questions' => $questions));
             }
 
             if($pageContent[0]->getElements() == 'profileInfo') {
@@ -88,6 +93,11 @@ class PagesController extends Controller
 
             if($pageContent[0]->getElements() == 'profileInfo') {
                 return $this->render("user/pages/info1.html.twig", array('user' => $user, 'articles' => $articles, 'categories' => $categories, 'pages' => $pages, 'page' => $pageContent));
+            }
+
+            if($pageContent[0]->getElements() == 'forum') {
+                $questions = $this->getDoctrine()->getRepository(Question::class)->findBy(['userId' => $id], ['id' => 'DESC']);
+                return $this->render("user/pages/forum2.html.twig", array('user' => $user, 'questions' => $questions));
             }
         }
 

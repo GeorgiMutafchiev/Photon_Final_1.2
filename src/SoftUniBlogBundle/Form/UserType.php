@@ -23,7 +23,6 @@ class UserType extends AbstractType
             ->add('twitter', TextType::class)
             ->add('instagram', TextType::class)
             ->add('description', TextType::class)
-            ->add('status', TextType::class)
             ->add('photo', TextType::class, array('label' => 'Photo (JPG file)'))
             ->add('password', RepeatedType::class, array(
                     'type' => PasswordType::class,

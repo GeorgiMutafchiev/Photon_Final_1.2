@@ -172,6 +172,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/question')) {
+            // question_create
+            if ($pathinfo === '/question/create') {
+                return array (  '_controller' => 'SoftUniBlogBundle\\Controller\\QuestionController::create',  '_route' => 'question_create',);
+            }
+
+            // question_view
+            if (preg_match('#^/question/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'question_view')), array (  '_controller' => 'SoftUniBlogBundle\\Controller\\QuestionController::viewArticle',));
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             // security_login
             if ($pathinfo === '/login') {

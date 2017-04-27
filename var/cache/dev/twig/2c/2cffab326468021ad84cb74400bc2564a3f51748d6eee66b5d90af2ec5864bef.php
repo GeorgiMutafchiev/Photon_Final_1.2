@@ -21,20 +21,20 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d->enter($__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/profile2.html.twig"));
+        $__internal_04a2368344c659e607819ac8deb998084c59f50c6a852519c7fa6d5002017e88 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_04a2368344c659e607819ac8deb998084c59f50c6a852519c7fa6d5002017e88->enter($__internal_04a2368344c659e607819ac8deb998084c59f50c6a852519c7fa6d5002017e88_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/profile2.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d->leave($__internal_96db728e78e8547b48b2c2957841893a2d911e0602a95cf7ffef544f8ecc2a1d_prof);
+        $__internal_04a2368344c659e607819ac8deb998084c59f50c6a852519c7fa6d5002017e88->leave($__internal_04a2368344c659e607819ac8deb998084c59f50c6a852519c7fa6d5002017e88_prof);
 
     }
 
     // line 3
     public function block_main($context, array $blocks = array())
     {
-        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a->enter($__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
+        $__internal_806c85c8010048944f99830d5bcbaefde63628063d4ba2457c89a20817e94be3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_806c85c8010048944f99830d5bcbaefde63628063d4ba2457c89a20817e94be3->enter($__internal_806c85c8010048944f99830d5bcbaefde63628063d4ba2457c89a20817e94be3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "main"));
 
         // line 4
         echo "    <div class=\"content-wrapper\" >
@@ -319,6 +319,28 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
         // line 114
         echo "                            </ul>
                         </div>
+                        <div class=\"sidebox widget\">
+                            <h5 class=\"widget-title\">Questions</h5>
+                            <ul class=\"list circled\">
+                                ";
+        // line 119
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")));
+        foreach ($context['_seq'] as $context["_key"] => $context["question"]) {
+            // line 120
+            echo "                                    <li style=\"font-size: 20px;\"><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("question_view", array("id" => $this->getAttribute($context["question"], "id", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["question"], "name", array()), "html", null, true);
+            echo "</a></li>
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['question'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 122
+        echo "                            </ul>
+                        </div>
                         <!-- /.widget -->
                         <!-- /.widget -->
                     </aside>
@@ -336,7 +358,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
 ";
         
-        $__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a->leave($__internal_c249d0bb6f79232dd9aecd0ff61bdbbb5ace37672766ecbe3b37de752a20bf9a_prof);
+        $__internal_806c85c8010048944f99830d5bcbaefde63628063d4ba2457c89a20817e94be3->leave($__internal_806c85c8010048944f99830d5bcbaefde63628063d4ba2457c89a20817e94be3_prof);
 
     }
 
@@ -352,7 +374,7 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
 
     public function getDebugInfo()
     {
-        return array (  320 => 114,  309 => 112,  305 => 111,  295 => 103,  281 => 102,  274 => 98,  268 => 97,  261 => 95,  258 => 94,  255 => 93,  238 => 92,  228 => 84,  222 => 82,  219 => 81,  213 => 79,  210 => 78,  204 => 76,  202 => 75,  197 => 73,  192 => 71,  173 => 54,  159 => 53,  149 => 46,  145 => 45,  138 => 43,  134 => 42,  128 => 41,  124 => 39,  121 => 38,  104 => 37,  94 => 29,  79 => 20,  75 => 19,  69 => 18,  65 => 17,  59 => 16,  54 => 13,  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  342 => 122,  331 => 120,  327 => 119,  320 => 114,  309 => 112,  305 => 111,  295 => 103,  281 => 102,  274 => 98,  268 => 97,  261 => 95,  258 => 94,  255 => 93,  238 => 92,  228 => 84,  222 => 82,  219 => 81,  213 => 79,  210 => 78,  204 => 76,  202 => 75,  197 => 73,  192 => 71,  173 => 54,  159 => 53,  149 => 46,  145 => 45,  138 => 43,  134 => 42,  128 => 41,  124 => 39,  121 => 38,  104 => 37,  94 => 29,  79 => 20,  75 => 19,  69 => 18,  65 => 17,  59 => 16,  54 => 13,  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     public function getSource()
@@ -469,6 +491,14 @@ class __TwigTemplate_72cf8591ed59a2825d687676c8a9d54f10845afebc5ce4aa287b55e0dc9
                             <ul class=\"list circled\">
                                 {% for page in pages %}
                                     <li style=\"font-size: 20px;\"><a href=\"{{ path('page_view', {id: user.id, src: page.src}) }}\">{{ page.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class=\"sidebox widget\">
+                            <h5 class=\"widget-title\">Questions</h5>
+                            <ul class=\"list circled\">
+                                {% for question in questions %}
+                                    <li style=\"font-size: 20px;\"><a href=\"{{ path('question_view', {id: question.id}) }}\">{{ question.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>

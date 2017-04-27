@@ -1,0 +1,39 @@
+{% extends 'light.html.twig' %}
+
+{% block main %}
+    <div class="content-wrapper" >
+
+        <div class="light-wrapper" >
+            <div class="container inner">
+                <div class="blog row">
+                    <div class="col-sm-12 blog-content grid-view">
+
+
+                    </div>
+                    <aside class="col-sm-12">
+                        <div class="row text-center">
+                            <hr>
+                            {% for question in questions %}
+                                <div class="tab-pane fade in active" id="tab1-1">
+                                    <h1><a href="{{ path('question_view', {id: question.id}) }}">{{ question.name }}</a></h1>
+                                    <h5>This question is added on: {{ question.date|date('d-m-Y') }} | Author : <a href="{{ path('profile_see', {id: user.id}) }}">{{ user.fullName }}</a></h5>
+                                    <hr>
+                                </div>
+                            {% endfor %}
+                            <!-- /.widget -->
+                        </div>
+                    </aside>
+                    <!-- /column .sidebar -->
+
+                </div>
+                <!-- /.blog -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.light-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}
+

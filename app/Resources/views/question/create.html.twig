@@ -1,0 +1,30 @@
+{% extends 'base2.html.twig' %}
+
+{% block main %}
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" action="{{ path('question_create') }}" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Add new question</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_title">Write your question:</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Your question:"
+                                   name="question[name]">
+                        </div>
+                    </div>
+
+                    {{ form_row(form._token) }}
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" href="{{ path('blog_index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
